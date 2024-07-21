@@ -2,67 +2,68 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- <link href="assets/style/style.css" rel="stylesheet" /> -->
-  <link href="/static/css/style.css" rel="stylesheet" />
-  <link rel="icon" href="/static/img/favicon.png">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="assets/style/style.css" rel="stylesheet" /> -->
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <link rel="icon" href="/static/img/favicon.png">
 
-  <title>VEDA AI</title>
+    <title>VEDA AI</title>
 </head>
 
 <body>
-  <nav>
-    <a style="margin-bottom: -50px;" href="/" class="buy">Home</a>
-  </nav>
+    <nav>
+        <a style="margin-bottom: -50px;" href="/" class="buy">Home</a>
+    </nav>
 
-  <div id="check" class="center-align">
-    <!-- CAMERA -->
-    <div class="p-3 mt-3 text-center">
-      <h1 class="text-center fw-bolder mb-5" style="text-align: center;">Veda AI</h1>
-      <div class="row">
-        <div class="row-sm">
-          <p class="logs" id="load">Loading the model, it may take a while...</p> 
-          <video id="cam_input" hidden></video>
-          <canvas class="scotch-container" id="canvas_output" width="800" height="450"></canvas>
-          <h1 id="no-face-found" style="display: none;">No face found</h1>
+    <div id="check" class="center-align">
+        <!-- CAMERA -->
+        <div class="p-3 mt-3 text-center">
+            <h1 class="text-center fw-bolder mb-5" style="text-align: center;">Veda AI</h1>
+            <div class="row">
+                <div class="row-sm">
+                    <p class="logs" id="load">Loading the model, it may take a while...</p>
+                    <video id="cam_input" hidden></video>
+                    <canvas class="scotch-container" id="canvas_output" width="800" height="450"></canvas>
+                    <h1 id="no-face-found" style="display: none;">No face found</h1>
+                </div>
+            </div>
+            <div class="col-sm">
+                <canvas id="canvas_roi" hidden></canvas>
+
+            </div>
         </div>
-      </div>
-      <div class="col-sm">
-        <canvas id="canvas_roi" hidden></canvas>
+        <div class="cop">
+            <p>© VEDA 2023 Vident Studios</p>
+        </div>
 
-      </div>
-    </div>
+        <!-- END FOOTER -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            var nav = document.querySelector("nav");
 
-    <p>© VEDA 2023 Vident Studios</p>
-
-
-    <!-- END FOOTER -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-      crossorigin="anonymous"></script>
-    <script type="text/javascript">
-      var nav = document.querySelector("nav");
-
-      window.addEventListener("scroll", function () {
-        if (window.pageYOffset > 100) {
-          nav.classList.add("bg-dark", "shadow");
-        } else {
-          nav.classList.remove("bg-dark", "shadow");
-        }
-      });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
-    <script src="/static/js/index.js"></script>
-    <script src="https://docs.opencv.org/4.x/opencv.js" onload="openCvReady();"></script>
+            window.addEventListener("scroll", function () {
+                if (window.pageYOffset > 100) {
+                    nav.classList.add("bg-dark", "shadow");
+                } else {
+                    nav.classList.remove("bg-dark", "shadow");
+                }
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+        <script src="/static/js/index.js"></script>
+        <script src="https://docs.opencv.org/4.x/opencv.js" onload="openCvReady();"></script>
 </body>
 
 </html>
@@ -70,26 +71,28 @@
 <!-- onload="openCvReady();" -->
 <script type="text/javascript">
 
-  window.onload= function () {
-    setTimeout(function () {
-        document.getElementById('load').style.display='none';
-    }, 1300);
-    return false;
-};
+    window.onload = function () {
+        setTimeout(function () {
+            document.getElementById('load').style.display = 'none';
+        }, 1300);
+        return false;
+    };
 
 </script>
 
 
 <style>
-.row{
-    margin:0px;
-}
-#canvas_output{
-    width:350px;
-    height: 500px;
-    margin:auto;
-}
-.p{
-    text-align: center;
-}
+    .row {
+        margin: 0px;
+    }
+
+    #canvas_output {
+        width: 350px;
+        height: 500px;
+        margin: auto;
+    }
+
+    .cop {
+        text-align: center;
+    }
 </style>
