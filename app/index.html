@@ -23,7 +23,7 @@
       <h1 class="text-center fw-bolder mb-5" style="text-align: center;">Veda AI</h1>
       <div class="row">
         <div class="row-sm">
-          <p class="logs" id="load">Loading the model, it may take a while...</p> 
+          <p class="logs" id="load">Loading the model, it may take a while...</p>
           <video id="cam_input" hidden></video>
           <canvas class="scotch-container" id="canvas_output" width="800" height="450"></canvas>
           <h1 id="no-face-found" style="display: none;">No face found</h1>
@@ -34,9 +34,9 @@
 
       </div>
     </div>
-
-    <p>© VEDA 2023 Vident Studios</p>
-
+    <div class="cop">
+      <p>© VEDA 2023 Vident Studios</p>
+    </div>
 
     <!-- END FOOTER -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -69,36 +69,36 @@
 
 <!-- onload="openCvReady();" -->
 <script type="text/javascript">
-  
 
-  window.onload= function () {
+
+  window.onload = function () {
     setTimeout(function () {
-        document.getElementById('load').style.display='none';
+      document.getElementById('load').style.display = 'none';
     }, 1300);
     return false;
-};
+  };
 
 </script>
 
 <style>
   @media (max-width : 800px) {
     body {
-        background-image: none;
-        width: fit-content;
-        overflow-y: hidden;
+      background-image: none;
+      
     }
- .row {
-     margin: 0px;
- }
 
- #canvas_output {
-     width: 350px;
-     height: 500px;
-     margin: auto;
- }
+    .row {
+      margin: 0px;
+    }
 
- .cop {
-     text-align: center;
- }
-}
+    #canvas_output {
+      width: 350px;
+      height: 500px;
+      margin: auto;
+    }
+
+    .cop {
+      text-align: center;
+    }
+  }
 </style>
