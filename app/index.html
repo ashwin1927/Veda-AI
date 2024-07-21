@@ -69,9 +69,7 @@
 
 <!-- onload="openCvReady();" -->
 <script type="text/javascript">
-  if (screen.width <= 800) {
-    window.location = "/mobiledevice.html";
-  }
+  
 
   window.onload= function () {
     setTimeout(function () {
@@ -81,3 +79,21 @@
 };
 
 </script>
+
+<style>
+  @media (max-width : 800px) {
+ .row {
+     margin: 0px;
+ }
+
+ #canvas_output {
+     width: 350px;
+     height: 500px;
+     margin: auto;
+ }
+
+ .cop {
+     text-align: center;
+ }
+}
+</style>
